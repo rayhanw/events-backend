@@ -2,7 +2,7 @@ const mongoose = require("mongoose");
 const Event = mongoose.model("events");
 
 module.exports = app => {
-	app.get("/events", (req, res) => {
+	app.get("/events_list", (req, res) => {
 		Event.find({}, function(error, events) {
 			if (error) {
 				res.render("error", { errorMsg: "Problem!" });

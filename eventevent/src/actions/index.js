@@ -1,6 +1,7 @@
 import { ADD_EVENT, FETCH_EVENTS } from "./types";
 import eventsAPI from "../apis/events";
 import history from "../history";
+import axios from "axios";
 
 const createEvent = formValues => async dispatch => {
 	const response = await eventsAPI.post("/", formValues);
@@ -10,7 +11,7 @@ const createEvent = formValues => async dispatch => {
 };
 
 const fetchEvents = () => async dispatch => {
-	const response = await eventsAPI.get("/events");
+	const response = await eventsAPI.get("/events_list");
 	response.data.map(event => {
 		event.start = new Date(event.start);
 		event.end = new Date(event.end);
