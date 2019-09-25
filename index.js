@@ -6,7 +6,9 @@ const PORT = process.env.PORT || 3001;
 
 require("./models/Event");
 
-mongoose.connect(ENV.parsed.MONGO, {
+const mongo_url = process.env.MONGO || ENV.parsed.MONGO;
+
+mongoose.connect(mongo_url, {
 	useNewUrlParser: true,
 	useUnifiedTopology: true
 });
