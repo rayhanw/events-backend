@@ -5,11 +5,15 @@
 	"main": "index.js",
 	"scripts": {
 		"start": "node index.js",
-		"server": "nodemon index.js"
+		"server": "nodemon index.js",
+		"client": "npm run start --prefix eventevent",
+		"dev": "concurrently \"npm run server\" \"npm run client\"",
+		"heroku-postbuild": "NPM_CONFIG_PRODUCTION=false npm install --prefix eventevent && npm run build --prefix eventevent"
 	},
 	"author": "Rayhan Wirjowerdojo",
 	"license": "ISC",
 	"dependencies": {
+		"concurrently": "^4.1.2",
 		"cors": "^2.8.5",
 		"dotenv": "^8.1.0",
 		"express": "^4.17.1",
