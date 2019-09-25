@@ -16,10 +16,16 @@ const app = express();
 
 app.use(cors());
 app.use(express.json());
+require("./routes/eventRoutes")(app);
+
+if (process.env.NODE_ENV === "production") {
+	app.use(express.static("eventevent/build"));
+	const path = require("path");
+	app.get("*", (req, res) => {
+		res.sendFile(path.resolve(__dirname, "client", "build", "index.html"));
+	});
+}
 
 app.listen(PORT, function() {
 	console.log("Server is listening on PORT: ", PORT);
 });
-
-// IIFE?
-require("./routes/eventRoutes")(app);
