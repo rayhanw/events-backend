@@ -1,6 +1,7 @@
 import React from "react";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 
+import Tags from "../SEO/Tags";
 import Header from "./Header";
 import NewEvent from "../pages/NewEvent";
 import Home from "../pages/Home";
@@ -12,6 +13,8 @@ import "./styles/App.css";
 const App = () => {
 	return (
 		<div>
+			<Tags />
+
 			<Router history={history}>
 				<Header />
 				<Switch>
