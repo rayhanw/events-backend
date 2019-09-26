@@ -2,7 +2,7 @@ const mongoose = require("mongoose");
 const Event = mongoose.model("events");
 
 module.exports = app => {
-	app.get("/events_list", (req, res) => {
+	app.get("/api/events", (req, res) => {
 		Event.find({}, function(error, events) {
 			if (error) {
 				res.render("error", { errorMsg: "Problem!" });
@@ -11,7 +11,7 @@ module.exports = app => {
 		});
 	});
 
-	app.post("/", async (req, res) => {
+	app.post("/api", async (req, res) => {
 		const { start, end, title } = req.body;
 		const event = await new Event({
 			start: new Date(start),

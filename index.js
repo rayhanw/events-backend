@@ -26,6 +26,6 @@ if (process.env.NODE_ENV === "production") {
 	});
 }
 
-app.listen(PORT, function() {
+app.listen(PORT, () => {
 	console.log("Server is listening on PORT: ", PORT);
 });
